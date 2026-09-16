@@ -1,0 +1,7 @@
+SELECT DISTINCT 
+  b.myv_van_id, 
+  c.phone_number, 
+  c.email
+FROM `demsoksp.commons.SEOSU_FA25_Matcher` a
+JOIN `demsoksp.vansync_derived.contacts_myv` b USING(person_id)
+JOIN `demsoksp.commons.SEOSU_FA25` c ON a.matchback_id = c.matchback_id;
