@@ -1,0 +1,15 @@
+SELECT
+op.van_precinct_id,
+pl.PrecinctCode,
+pl.CongressionalDistrict,
+pl.StateHouseDistrict,
+pl.StateSenateDistrict,
+pl.PollSite,
+pl.PollSiteAddress,
+pl.PollSiteAddress2,
+pl.PollSiteCity,
+pl.PollSiteZip
+FROM `demsoksp.commons.PollingLocations` AS pl
+JOIN `democrats.voter_file_ok.precinct` AS op
+  ON LPAD(CAST(op.precinct_code AS STRING), LENGTH(CAST(pl.PrecinctCode AS STRING)), '0')
+     = CAST(pl.PrecinctCode AS STRING)
