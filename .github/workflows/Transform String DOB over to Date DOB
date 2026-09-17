@@ -1,0 +1,5 @@
+Create or replace table demsoksp.commons.JoyDonors as 
+SELECT
+  * EXCEPT(date_of_birth),
+  SAFE.PARSE_DATE('%m/%d/%Y', date_of_birth) AS date_of_birth
+FROM `demsoksp.commons.JoyDonors`;
